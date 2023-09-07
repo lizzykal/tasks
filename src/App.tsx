@@ -21,6 +21,11 @@ function App(): JSX.Element {
                 if you want.
             </p>
             ;
+            <ol>
+                <li>Dog</li>
+                <li>Cat</li>
+                <li>Hamster</li>
+            </ol>
         </div>
     );
 }
