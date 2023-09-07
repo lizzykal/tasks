@@ -1,17 +1,21 @@
 import React from "react";
 import "./App.css";
+import { Button, Col, Container, Row } from "react-bootstrap";
 
 function App(): JSX.Element {
     return (
         <div className="App">
-            <h1>Hello World</h1>;
+            <h1>Hello World</h1>; This is{" "}
+            <span style={{ color: "red" }}>colored text</span>.
             <img
                 src="C:\Users\Lizzy Kalfas\Downloads\Dogimagefortaks3.jpg"
                 alt="A picture of a cute dog"
             />
-            <header className="App-header">
-                UD CISC275 by Lizzy Kalfas Hello World
-            </header>
+            <Button>Log Hello World</Button>
+            <Button onClick={() => console.log("Hello world!")}>
+                Click Me
+            </Button>
+            <header className="App-header">UD CISC275 by Lizzy Kalfas</header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
@@ -21,6 +25,16 @@ function App(): JSX.Element {
                 if you want.
             </p>
             ;
+            <Container>
+                <Row>
+                    <Col>First column.</Col>
+                    <Col>
+                        Second column. You can put whatever you want in here,
+                        and it will be on the right side. Maybe try adding an
+                        image?
+                    </Col>
+                </Row>
+            </Container>
             <ol>
                 <li>Dog</li>
                 <li>Cat</li>
