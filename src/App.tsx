@@ -5,21 +5,21 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 function App(): JSX.Element {
     return (
         <div className="App">
-            <h1>Hello World</h1>; This is{" "}
-            <span style={{ color: "red" }}>colored text</span>.
+            <h1> Lizzy Kalfas </h1>
+            <header className="App-header">UD CISC275</header>
+            <ol>
+                <li>Dog</li>
+                <li>Cat</li>
+                <li>Hamster</li>
+            </ol>
+            ;
             <img
-                src="C:\Users\Lizzy Kalfas\Downloads\Dogimagefortaks3.jpg"
+                src="https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2021-09/puppy-socialization-pexels-helena-lopes-1790444.jpg?itok=wqs5TWkk"
                 alt="A picture of a cute dog"
             />
-            <Button onClick={() => console.log("Hello world!")}>
+            <Button onClick={() => console.log("Hello World!")}>
                 Log Hello World
             </Button>
-            <header className="App-header">UD CISC275 by Lizzy Kalfas</header>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
-            </p>
-            ;
             <Container>
                 <Row>
                     <Col>
@@ -38,11 +38,6 @@ function App(): JSX.Element {
                     </Col>
                 </Row>
             </Container>
-            <ol>
-                <li>Dog</li>
-                <li>Cat</li>
-                <li>Hamster</li>
-            </ol>
         </div>
     );
 }
