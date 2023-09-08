@@ -27,11 +27,21 @@ function App(): JSX.Element {
             ;
             <Container>
                 <Row>
-                    <Col>First column.</Col>
+                    <Col>
+                        First column.
+                        <div>
+                            width: 500px; height: 200px; background-color:
+                            #f32121;
+                        </div>
+                    </Col>
                     <Col>
                         Second column. You can put whatever you want in here,
                         and it will be on the right side. Maybe try adding an
                         image?
+                        <div>
+                            width: 500px; height: 200px; background-color:
+                            #f32121;
+                        </div>
                     </Col>
                 </Row>
             </Container>
