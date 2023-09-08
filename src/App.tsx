@@ -11,37 +11,30 @@ function App(): JSX.Element {
                 src="C:\Users\Lizzy Kalfas\Downloads\Dogimagefortaks3.jpg"
                 alt="A picture of a cute dog"
             />
-            <Button>Log Hello World</Button>
             <Button onClick={() => console.log("Hello world!")}>
-                Click Me
+                Log Hello World
             </Button>
             <header className="App-header">UD CISC275 by Lizzy Kalfas</header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
-            <p>
-                This is just a paragraph of text. It can go onto multiple lines,
-                if you want.
-            </p>
             ;
             <Container>
                 <Row>
                     <Col>
-                        First column.
-                        <div>
-                            width: 500px; height: 200px; background-color:
-                            #f32121;
-                        </div>
+                        First column
+                        <p>&nbsp;</p>
+                        <svg width="100" height="50">
+                            <rect width="100" height="50" fill="red" />
+                        </svg>
                     </Col>
                     <Col>
-                        Second column. You can put whatever you want in here,
-                        and it will be on the right side. Maybe try adding an
-                        image?
-                        <div>
-                            width: 500px; height: 200px; background-color:
-                            #f32121;
-                        </div>
+                        Second column.
+                        <p>&nbsp;</p>
+                        <svg width="100" height="50">
+                            <rect width="100" height="50" fill="red" />
+                        </svg>
                     </Col>
                 </Row>
             </Container>
