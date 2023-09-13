@@ -1,10 +1,5 @@
-import {
-    add3,
-    fahrenheitToCelius,
-    shout,
-    isQuestion,
-    convertYesNo
-} from "./functions";
+import { add3, shout, isQuestion, convertYesNo } from "./functions";
+import { fahrenheitToCelius } from "./functions.test";
 
 describe("Testing the basic functions", () => {
     test("Testing the fahrenheitToCelius function", () => {
@@ -57,3 +52,14 @@ describe("Testing the basic functions", () => {
         expect(convertYesNo("Maybe")).toBe(null);
     });
 });
+/**
+ * Consumes a single temperature in Fahrenheit (a number) and converts to Celsius
+ * using this formula:
+
+ *      C = (F - 32) * 5/9
+ */
+export function fahrenheitToCelius(temperature: number): number {
+    let F: number;
+    temperature = ((F - 32) * 5) / 9;
+    return temperature;
+}
