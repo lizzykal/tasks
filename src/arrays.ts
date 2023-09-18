@@ -50,7 +50,20 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const processedMessages = messages.map((message) => {
+        if (message.endsWith("!")) {
+            return message.toUpperCase();
+        }
+        if (message.endsWith("?")) {
+            return "";
+        }
+        return message;
+    });
+    const filteredMessages = processedMessages.filter(
+        (message) => message !== ""
+    );
+
+    return filteredMessages;
 };
 
 /**
@@ -58,7 +71,8 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    words = words.filter((word) => word.length < 4);
+    return words.length;
 }
 
 /**
@@ -67,7 +81,8 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    const validColors = ["red", "blue", "green"];
+    return colors.every((color) => validColors.includes(color));
 }
 
 /**
@@ -78,7 +93,10 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    const sum = addends.reduce((total, addend) => total + addend, 0);
+    const addendsString = addends.join(" + ");
+    const resultString = `${addendsString} = ${sum}`;
+    return resultString;
 }
 
 /**
@@ -91,5 +109,23 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    let sumBeforeNegative = 0;
+    let negativeFound = false;
+    const resultArray = values.map((num) => {
+        if (!negativeFound) {
+            if (num < 0) {
+                negativeFound = true;
+            } else {
+                sumBeforeNegative += num;
+            }
+        }
+        return num;
+    });
+    if (negativeFound) {
+        const firstNegativeIndex = resultArray.findIndex((num) => num < 0);
+        resultArray.splice(firstNegativeIndex, 0, sumBeforeNegative);
+    } else {
+        resultArray.push(sumBeforeNegative);
+    }
+    return resultArray;
 }
