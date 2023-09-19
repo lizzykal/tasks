@@ -63,7 +63,7 @@ export function isValid(question: Question, answer: string): boolean {
  */
 export function toShortForm(question: Question): string {
     const shortenedName = question.name.slice(0, 10);
-    return question.id + ":" + shortenedName;
+    return question.id + ": " + shortenedName;
 }
 
 /**
