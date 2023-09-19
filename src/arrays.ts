@@ -120,26 +120,17 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    let sum = 0;
-    let foundNegative = false;
-
-    const modifiedArray = values.map((num) => {
-        if (foundNegative) {
-            return num;
-        } else {
-            sum += num;
-            if (num < 0) {
-                foundNegative = true;
-                return num;
-            } else {
-                return sum;
-            }
+    const sum = values.reduce((acc, num, index) => {
+        if (num < 0) {
+            values.splice(index, 0, acc);
+            return acc;
         }
-    });
+        return acc + num;
+    }, 0);
 
-    if (!foundNegative) {
-        modifiedArray.push(-sum);
+    if (!values.includes(sum)) {
+        values.push(sum);
     }
 
-    return modifiedArray;
+    return values;
 }
