@@ -121,17 +121,19 @@ export function makeMath(addends: number[]): string {
  */
 export function injectPositive(values: number[]): number[] {
     let sum = 0;
-    let negativeFound = false;
-
-    return values.map((num) => {
-        if (!negativeFound) {
+    let foundNegative = false;
+    const modifiedArray = values.map((num) => {
+        if (!foundNegative) {
+            sum += num;
             if (num < 0) {
-                negativeFound = true;
-            } else {
-                sum += num;
+                foundNegative = true;
+                return [num, sum];
             }
         }
-
-        return negativeFound ? sum : num;
+        return num;
     });
+    if (!foundNegative) {
+        modifiedArray.push(sum);
+    }
+    return modifiedArray.flat();
 }
