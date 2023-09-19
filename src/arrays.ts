@@ -120,17 +120,18 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    const sum = values.reduce((acc, num, index) => {
-        if (num < 0) {
-            values.splice(index, 0, acc);
-            return acc;
+    let sum = 0;
+    let negativeFound = false;
+
+    return values.map((num) => {
+        if (!negativeFound) {
+            if (num < 0) {
+                negativeFound = true;
+            } else {
+                sum += num;
+            }
         }
-        return acc + num;
-    }, 0);
 
-    if (!values.includes(sum)) {
-        values.push(sum);
-    }
-
-    return values;
+        return negativeFound ? sum : num;
+    });
 }
