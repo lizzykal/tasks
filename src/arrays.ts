@@ -98,10 +98,16 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    const sum = addends.reduce((total, addend) => total + addend, 0);
-    const addendsString = addends.join("+");
-    const resultString = `${sum}=${addendsString}`;
-    return resultString;
+    // Calculate the sum of the numbers in the array
+    const sum = addends.reduce((acc, num) => acc + num, 0);
+
+    // Create a string representation of the numbers being added together
+    const representation = addends.length > 0 ? addends.join("+") : "0";
+
+    // Combine the representation and the sum into a single string
+    const result = `${sum}=${representation}`;
+
+    return result;
 }
 
 /**
