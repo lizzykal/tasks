@@ -138,7 +138,7 @@ export function injectPositive(values: number[]): number[] {
     });
 
     if (!foundNegative) {
-        modifiedArray.push(sum);
+        modifiedArray.push(-sum);
     }
 
     return modifiedArray;
