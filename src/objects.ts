@@ -89,8 +89,9 @@ export function toMarkdown(question: Question): string {
         question.type == "multiple_choice_question" &&
         Array.isArray(question.options)
     ) {
-        formattedString +=
-            question.options.map((option) => "\n- " + option).join("\n") + "\n";
+        formattedString += question.options
+            .map((option) => "\n- " + option)
+            .join("\n");
     }
     return formattedString;
 }
