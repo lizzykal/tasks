@@ -122,6 +122,7 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
     const newName = `Copy of ${oldQuestion.name}`;
     return {
         ...oldQuestion,
+        id,
         name: newName,
         published: false
     };
