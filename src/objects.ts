@@ -100,9 +100,9 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    return question;
+    const updatedVersion = { ...question, name: newName };
+    return updatedVersion;
 }
-
 /**
  * Return a new version of the given question, except the `published` field
  * should be inverted. If the question was not published, now it should be
