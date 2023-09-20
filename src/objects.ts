@@ -90,7 +90,7 @@ export function toMarkdown(question: Question): string {
         Array.isArray(question.options)
     ) {
         formattedString += question.options
-            .map((option) => "- " + option)
+            .map((option) => "/n- " + option)
             .join("\n");
     }
     return formattedString;
