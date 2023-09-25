@@ -133,7 +133,11 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * each question is now published, regardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
-    return [];
+    const publishedQuestions = questions.map((question) => ({
+        ...question,
+        published: true
+    }));
+    return publishedQuestions;
 }
 
 /***
@@ -141,7 +145,14 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    return false;
+    if (questions.length == 0) {
+        return true;
+    }
+    const firstQuestionType = typeof questions[0];
+    const allSameType = questions.every(
+        (question) => typeof question == firstQuestionType
+    );
+    return allSameType;
 }
 
 /***
