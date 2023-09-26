@@ -182,7 +182,16 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    return questions.map((question) => {
+        if (question.id === targetId) {
+            return {
+                ...question, // Copy all other properties
+                name: newName // Replace the name
+            };
+        } else {
+            return question;
+        }
+    });
 }
 
 /***
