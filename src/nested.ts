@@ -143,10 +143,16 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    const initialType = questions[0]?.type;
-    return questions.reduce((areSameType, question) => {
-        return areSameType && question.type === initialType;
-    }, true);
+    if (questions.length === 0) {
+        return true;
+    }
+    const firstQuestionType = typeof questions[0];
+    for (let i = 1; i < questions.length; i++) {
+        if (typeof questions[i] !== firstQuestionType) {
+            return false;
+        }
+    }
+    return true;
 }
 
 /***
