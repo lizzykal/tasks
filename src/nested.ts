@@ -265,18 +265,11 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    const newQuestions: Question[] = [];
-    for (let i = 0; i < questions.length; i++) {
-        const currentQuestion = questions[i];
-        if (currentQuestion.id === targetId) {
-            const newId = currentQuestion.id + 1;
-            newQuestions.push(
-                currentQuestion,
-                duplicateQuestion(newId, currentQuestion)
-            );
+    return questions.flatMap((question) => {
+        if (question.id === targetId) {
+            return [question, duplicateQuestion(newId, question)];
         } else {
-            newQuestions.push(currentQuestion);
+            return [question];
         }
-    }
-    return newQuestions;
+    });
 }
