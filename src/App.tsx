@@ -44,9 +44,6 @@ function App(): JSX.Element {
                     </Col>
                 </Row>
             </Container>
-            <header className="App-header">
-                UD CISC275 with React Hooks and TypeScript
-            </header>
             <hr></hr>
             <Counter></Counter>
             <hr />
