@@ -15,32 +15,33 @@ export function TwoDice(): JSX.Element {
     const [leftDie, setLeftDie] = useState(d6());
     const [rightDie, setRightDie] = useState(d6());
 
-    // Function to roll the left die
     const rollLeft = () => {
-        setLeftDie(d6());
+        const newLeftDie = d6();
+        if (newLeftDie !== rightDie) {
+            setLeftDie(newLeftDie);
+        }
     };
 
-    // Function to roll the right die
     const rollRight = () => {
-        setRightDie(d6());
+        const newRightDie = d6();
+        if (newRightDie !== leftDie) {
+            setRightDie(newRightDie);
+        }
     };
-    let gameOutcome = "";
-    if (leftDie === rightDie) {
-        gameOutcome = "Lose";
-    } else if (leftDie !== 1 && rightDie !== 1) {
-        gameOutcome = "Win";
-    }
+
+    const isLose = leftDie === 1 && rightDie === 1;
+    const isWin = leftDie === rightDie && !isLose;
 
     return (
         <div>
-            <h1>Two Dice Game</h1>
-            <div>
-                <span data-testid="left-die">{leftDie}</span>
-                <span data-testid="right-die">{rightDie}</span>
-            </div>
+            <span data-testid="left-die">Left Die: {leftDie}</span>
+            <span data-testid="right-die">Right Die: {rightDie}</span>
+
             <Button onClick={rollLeft}>Roll Left</Button>
             <Button onClick={rollRight}>Roll Right</Button>
-            {gameOutcome && <p>You {gameOutcome}!</p>}
+
+            {isLose && <p>You Lose!</p>}
+            {isWin && <p>You Win!</p>}
         </div>
     );
 }
