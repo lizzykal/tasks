@@ -25,7 +25,7 @@ export function StartAttempt(): JSX.Element {
             <p>Attempts left: {attempts}</p>
             {quizInProgress ? (
                 <Button onClick={stopQuiz} disabled={!quizInProgress}>
-                     Stop Quiz
+                    Stop Quiz
                 </Button>
             ) : (
                 <Button onClick={startQuiz} disabled={attempts === 0}>
