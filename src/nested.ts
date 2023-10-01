@@ -146,13 +146,8 @@ export function sameType(questions: Question[]): boolean {
     if (questions.length === 0) {
         return true;
     }
-    const firstQuestionType = typeof questions[0];
-    for (let i = 1; i < questions.length; i++) {
-        if (typeof questions[i] !== firstQuestionType) {
-            return false;
-        }
-    }
-    return true;
+    const initialType = questions[0]?.type;
+    return questions.every((question) => question.type === initialType);
 }
 
 /***
