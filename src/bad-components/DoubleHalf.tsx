@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { dhValue, setDhValue } from "./DoubleHalfState";
+
+export const [dhValue, setDhValue] = useState<number>(10);
 
 export function DoubleHalf(): JSX.Element {
     const handleDoubleClick = () => {
